@@ -1,0 +1,339 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #333;
+}
+
+/* --------------------
+ヘッダーのスタイル 
+-----------------------*/
+header {
+  background-color: rgba(51, 51, 51, 0.7);
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10rem;
+  height: 70px;
+  padding: 0 1rem;
+  box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+}
+
+nav {
+  flex: 1;
+}
+
+nav a {
+  position: relative;
+  padding-bottom: 8px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  background-color: #00bfd8;
+
+  width: 0;
+  height: 2px;
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+nav a:hover::after {
+  /*ホバー時のスタイル*/
+  width: 100%;
+}
+
+header ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+header ul li a {
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  letter-spacing: 3px;
+}
+
+/*アイコンのスタイル*/
+header h1 img {
+  display: block;
+}
+
+/* --------------------
+MVのスタイル 
+-----------------------*/
+.portfolio-top {
+  background-color: #333;
+  width: 100%;
+  height: 850px;
+  display: flex;
+  align-items: center;
+}
+
+.portfolio-top .container {
+  width: 70%;
+  margin: 40px auto 0 auto;
+}
+
+.portfolio-top h2 {
+  color: #333;
+  -webkit-text-stroke: 3px #0ce7cd;
+  font-size: 64px;
+  text-align: center;
+  letter-spacing: 20px;
+  animation: 1s ease-in bounceIn; /*要素が弾む*/
+}
+
+@keyframes bounceIn {
+  /*0%=0秒　100％=1秒*/
+  0% {
+    transform: translateY(
+      100px
+    ); /*元の位置からY軸方向に100px移動（下に100px）*/
+    opacity: 0; /*完全透明*/
+  }
+  50% {
+    transform: translateY(-50px); /*元の位置より20px上*/
+  }
+  70% {
+    transform: translateY(30px); /*元の位置より10px下*/
+  }
+  85% {
+    transform: translateY(-15px); /*元の位置より5px上*/
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* h2の下に線を引くためのスタイル */
+.portfolio-top .container-title::after {
+  content: "";
+  display: block;
+  width: 600px;
+  height: 3px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin: 30px auto 0 auto;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  font-size: 48px;
+  font-weight: 100;
+  letter-spacing: 40px;
+  animation: 1s ease-out bounceIn;
+}
+
+.projects span {
+  margin-bottom: 20px;
+  color: #333;
+  /* -webkit-text-stroke: 2px #02e1ff; */
+  -webkit-text-stroke: 2px #fff;
+  margin: 0;
+}
+
+/* --------------------
+自己紹介セクションのスタイル
+-----------------------*/
+#portfolio-about,
+#portfolio-skills {
+  height: 1000px;
+  width: 100%;
+  max-width: 1200px;
+
+  display: flex;
+  align-items: center;
+
+  margin: 0 auto;
+  background-color: #333;
+  color: #fff;
+}
+
+#portfolio-about h2,
+#portfolio-skills h2 {
+  margin: 0 auto;
+  text-align: center;
+
+  font-size: 54px;
+  color: #333;
+  -webkit-text-stroke: 2px #ff9df5;
+}
+
+#portfolio-about .about,
+#portfolio-skills .skills {
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2rem;
+}
+
+.about p,
+.skills p {
+  width: 55%;
+
+  letter-spacing: 1px;
+  line-height: 2;
+  font-size: 15px;
+}
+
+.skills p {
+  width: 100%;
+}
+
+#portfolio-skills h2 {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+
+  font-size: 54px;
+  color: #333;
+  -webkit-text-stroke: 2px #02e1ff;
+
+  letter-spacing: 10px;
+}
+
+#portfolio-skills .after::after {
+  content: "";
+  display: inline-block;
+  background-color: #fff;
+  width: 600px;
+  height: 2px;
+  margin: 30px auto 0 auto;
+}
+
+.skill-description {
+  letter-spacing: 1px;
+}
+
+.skill-tags {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 0px;
+}
+
+/* 1つのスキル行 */
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.skill-tag {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  min-width: 100px; /* スキル名の幅を固定 */
+}
+
+/* メーター（バー全体） */
+.skill-bar {
+  flex: 1; /* 残りのスペースを占める */
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* メーター（進行部分） */
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  transition: width 1s ease-out;
+  width: 0; /* 初期状態は0% */
+}
+
+.portfolio-works {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* -------------------
+作品セクションのスタイル 
+----------------------*/
+
+#portfolio-works {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 1500px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+#portfolio-works .works h2 {
+  text-align: center;
+  font-size: 54px;
+  color: #333;
+  -webkit-text-stroke: 2px #ffffff;
+  letter-spacing: 10px;
+  margin-bottom: 100px;
+}
+
+#portfolio-works .works h2::after {
+  display: block;
+  content: '';
+  height: 2px;
+  width: 600px;
+  background-color: #ffffff;
+  margin: 30px auto 0;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  gap: 100px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.works-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.works-item img:hover {
+  transform: scale(1.1);
+}
+
+#footer {
+  height: 500px;
+  width: 100%;
+  border-top: 1px solid #636464;
+}
+
+#footer div{
+  margin-top: 80px;
+  margin-left: 80px;
+}
