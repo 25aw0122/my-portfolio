@@ -38,7 +38,7 @@ nav a {
 nav a::after {
   content: "";
   position: absolute;
-  background-color: #00bfd8;
+  background-color: #c7c7c7;
 
   width: 0;
   height: 2px;
@@ -154,6 +154,7 @@ MVのスタイル
 /* --------------------
 自己紹介セクションのスタイル
 -----------------------*/
+#portfolio-contact,
 #portfolio-about,
 #portfolio-skills {
   height: 1000px;
@@ -168,6 +169,7 @@ MVのスタイル
   color: #fff;
 }
 
+#portfolio-contact h2,
 #portfolio-about h2,
 #portfolio-skills h2 {
   margin: 0 auto;
@@ -178,6 +180,7 @@ MVのスタイル
   -webkit-text-stroke: 2px #ff9df5;
 }
 
+#portfolio-contact .contact,
 #portfolio-about .about,
 #portfolio-skills .skills {
   margin: 0 auto;
@@ -327,6 +330,19 @@ MVのスタイル
   transform: scale(1.1);
 }
 
+/*-----------------
+コンタクト
+-------------------*/
+
+#portfolio-contact h2{
+  -webkit-text-stroke: 2px #ffff9d;
+  letter-spacing: 10px;
+}
+
+/*------------------
+フッター
+-------------------*/
+
 #footer {
   height: 500px;
   width: 100%;
@@ -337,3 +353,4 @@ MVのスタイル
   margin-top: 80px;
   margin-left: 80px;
 }
+
