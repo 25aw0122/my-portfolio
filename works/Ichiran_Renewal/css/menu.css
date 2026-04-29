@@ -1,0 +1,273 @@
+/* --- 基本設定 --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #E9DBBF; 
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/* ヘッダー全体の親要素 */
+.main-header {
+    width: 100%;
+    position: relative;
+}
+
+/* 画像を囲うコンテナ */
+.header-image-container {
+    position: relative;
+    width: 100%;
+}
+
+/* 背景画像自体のスタイル */
+.bg-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 画像の上に重なるレイヤー */
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+/* ロゴとハンバーガーメニューの横並び */
+.header-container {
+    padding: 30px 5%; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; /* paddingを幅に含める */
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+}
+
+.menu-trigger {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.menu-trigger img {
+    width: 35px;
+    height: auto;
+    display: block;
+}
+
+
+.hero-title-area {
+    flex: 1; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+}
+
+.hero-title-area h1 {
+    font-size: 3.5rem;
+    color: #000;
+    font-weight: normal;
+    margin: 0;
+    padding-left: 20px; 
+}
+
+
+/* --- メインコンテンツ --- */
+.menu-container {
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 40px 0;
+
+}
+
+
+.intro-section {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.intro-section h2 {
+    font-size: 1.8rem;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.intro-section p {
+    font-size: 1rem;
+    color: #444;
+    padding: 0 12%;;
+}
+
+.menu-list-section {
+    position: relative;
+    background-image: url('../img/image_9.png'), url('../img/image_9.png');
+    background-position: left top, right top;
+    background-repeat: repeat-y, repeat-y;
+    padding: 0 50px; /* 雷紋がコンテンツにかぶらないように余白 */
+    width: 100%;
+    background-image: 
+        url('../img/Group\ 52.png'), 
+        url('../img/Group\ 53.png');
+    background-position: 
+        5% top, 
+        95% top;
+    background-repeat: repeat-y;
+    background-size: 25px auto;
+
+    padding: 0 10%;
+    box-sizing: border-box;
+}
+
+.menu-content {
+    width: 100%;
+    max-width: 800px; /* メニュー文字部分の最大幅 */
+    margin: 0 auto;
+}
+
+.menu-content h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+}
+
+.category {
+    margin-bottom: 50px;
+}
+
+.category h3 {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.category h3 small {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: normal;
+    text-align: right;
+    line-height: 1.4;
+}
+
+.category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category li {
+    display: flex;
+    justify-content: space-between; /* 商品名と金額を左右に */
+    align-items: center;
+    padding: 15px 0;
+
+}
+
+.item-name {
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.item-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000;
+}
+
+/* --- フッター --- */
+.main-footer {
+    background-color: #ad8b65; /* フッターの茶色 */
+    color: #fff;
+    padding: 8% 5% 4%;
+    margin-top: 100px;
+    box-sizing: border-box;
+}
+
+.footer-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    width: 60px; /* フッターロゴのサイズ調整 */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.footer-logo-info p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.sns-icons img {
+    height: 30px; /* SNSアイコンの高さ */
+    width: auto;
+}
+
+.footer-links .links-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 0.7;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 50px;
+    color: #eee0c8;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out; 
+    will-change: opacity, transform;
+}
+
+
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

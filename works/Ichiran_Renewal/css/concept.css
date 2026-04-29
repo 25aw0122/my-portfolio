@@ -1,0 +1,296 @@
+h1 {
+    font-size: 64px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 18px;
+}
+
+small {
+    font-size: 16px;
+}
+
+.no-break {
+    white-space: nowrap;
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+#concept {
+    background-color: #E9DBBF;
+
+    .FV {
+        position: relative;
+        height: 587px;
+
+        h1 {
+            position: absolute;
+            top: 318px;
+            left: 70px;
+
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url(../img/fv-kodawari.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+            opacity: 0.2;
+            background-position: center;
+        }
+    }
+
+    .kodawari-text {
+        margin: 105px auto 200px;
+        text-align: center;
+
+        h2 {
+            margin-bottom: 55px;
+
+        }
+
+        p {
+            line-height: 40px;
+            width: fit-content;
+            min-width: 710px;
+            margin: 0 auto;
+
+            .emphasis {
+                color: #CF2807;
+                font-family: Inter;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 40px;
+            }
+        }
+    }
+
+    .ganso {
+        margin: 0 auto 200px;
+        width: 100%;
+        max-width: 1132px;
+        height: 827px;
+        position: relative;
+        color: white;
+        font-size: 24px;
+        transition: opacity 0.5s ease;
+
+        h2 {
+            padding-top: 92px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .accordion-content {
+            display: none;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url(../img/donburi.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            z-index: -1;
+        }
+
+        .accordion>button {
+            display: flex;
+            justify-content: space-between;
+            justify-self: center;
+            width: 536px;
+            height: 68px;
+            border-bottom: white solid 1px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .last-accordion>button {
+            border: none;
+        }
+
+        .title {
+            margin-left: 20px;
+            font-family: "Noto Serif", serif;
+        }
+
+        .icon {
+            font-size: 32px;
+            font-weight: bold;
+        }
+    }
+
+    .soup {
+        max-width: 1313px;
+        margin: 0 auto;
+        padding: 0 5%;
+
+        h2 {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        >div {
+            display: grid;
+            grid-template-areas: "img Headline"
+                "img text";
+            grid-template-columns: auto auto;
+            gap: 15px 3%;
+            width: 100%;
+            max-width: 1078px;
+            justify-content: start;
+
+            img {
+                grid-area: img;
+                max-width: 100%;
+            }
+
+            h3 {
+                grid-area: Headline;
+                align-self: end;
+            }
+
+            p {
+                grid-area: text;
+            }
+        }
+
+        .dashi {
+            margin-bottom: 105px;
+        }
+
+        .soup-ladle {
+            grid-template-areas: "Headline img"
+                "text img";
+            justify-content: end;
+            margin-bottom: 105px;
+        }
+    }
+
+    .forest {
+        /* background-color: rgba(0, 255, 0, 0.5); */
+        margin: 200px auto 105px;
+        max-width: 1300px;
+        width: 100%;
+        position: relative;
+        padding: 4% 83px;
+
+        button {
+            font-size: 18px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url(../img/ichiran-forest.png);
+            z-index: -1;
+            opacity: 0.3;
+            background-size: cover;
+            background-position: right;
+            height: 120%;
+        }
+
+        h2 {
+
+            margin-bottom: 52px;
+        }
+
+        p {
+            margin-bottom: 45px;
+        }
+
+        button {
+            width: 221px;
+            height: 52px;
+            color: white;
+            border-radius: 50px;
+            background: #00712F;
+            box-shadow: 0 2px 4px 0 rgba(109, 109, 109, 0.25);
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+}
+
+.detail-view {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 1132px 827px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 10;
+}
+
+.detail-view.showing {
+    transition: opacity 1s ease;
+}
+
+.detail-view.show {
+    opacity: 1;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 140px 0 0 15%;
+    position: relative;
+    z-index: 2;
+
+    h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+    }
+}
+
+.detail-close {
+    width: 55px;
+    height: 55px;
+    border: 0;
+    cursor: pointer;
+    font-size: 32px;
+    line-height: 1;
+    color: white;
+    position: absolute;
+    right: 15%;
+    top: 140px;
+    z-index: 2;
+    text-align: center;
+}
+
+.detail-body {
+    padding: 54px 0 0 15%;
+    color: white;
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+
+    p {
+        margin: 0;
+        line-height: 48px;
+    }
+}

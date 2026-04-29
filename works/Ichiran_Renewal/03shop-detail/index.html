@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>店舗検索詳細</title>
+    <link rel="stylesheet" href="../css/destyle.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/shop-detail.css">
+    <script src="../js/main.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tsukimi+Rounded&amp;display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header-wrapper">
+      <h1>
+        <a href="../index.html"><img src="../img/Ellipse 14.png" alt="ロゴ" /></a>
+      </h1>
+
+
+        <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-warp" id="nav-warp">
+        <nav class="nav" id="nav">
+          <ul>
+            <li><a href="../index.html#first">初めてのお客様へ</a></li>
+            <li><a href="../01menu/index.html">メニュー</a></li>
+            <li><a href="../02shop/index.html">店舗検索</a></li>
+            <li><a href="../04concept/index.html">こだわり</a></li>
+             <li><a href="../#question">よくある質問</a></li>
+            <li><a href="../#news">新着情報</a></li>
+          </ul>
+        </nav>
+      </div>
+
+       <div class="nav-overlay" id="nav-overlay"></div>
+    </header>
+    <main>
+        <section class="tenpo">
+            <h1>那の川店</h1>
+            <div class="midasi">
+                <input type="radio" name="slide" id="s1" checked>
+                <input type="radio" name="slide" id="s2">
+                <input type="radio" name="slide" id="s3">
+                <input type="radio" name="slide" id="s4">
+                <input type="radio" name="slide" id="s5">
+
+                <div class="slider-container">
+                    <div class="slides">
+                        <img src="../img/nanokawa1.jpg" alt="那の川店舗昼の外見画像">
+                        <img src="../img/nanokawa2.jpg" alt="那の川店舗内画像">
+                        <img src="../img/nanokawa3.jpg" alt="那の川店舗駐車場画像">
+                        <img src="../img/nanokawa4.jpg" alt="那の川店舗横外見画像">
+                        <img src="../img/nanokawa5.jpg" alt="那の川店舗夜の外見画像">
+                    </div>
+
+                    <div class="dot-nav">
+                        <label for="s1"></label>
+                        <label for="s2"></label>
+                        <label for="s3"></label>
+                        <label for="s4"></label>
+                        <label for="s5"></label>
+                    </div>
+                </div>
+                <div class="access">
+                    <h3>住所</h3>
+                    <p>〒815-0081 <br>福岡県福岡市南区那の川2-2-10</p>
+                    <h3>電話番号</h3>
+                    <p>050-1808-3526</p>
+                    <p class="note">※混雑状況によっては電話に出られない場合がございますので、<br>あらかじめご了承ください。</p>
+                    <h3>営業時間</h3>
+                    <p>24時間</p>
+                    <p class="note">※営業時間は状況により急遽変更する場合がございます。</p>
+                </div>
+            </div>
+            <p class="note">※設備変更等の理由で上記写真イメージと異なる場合がございます。</p>
+        </section>
+        <section class="map">
+            <h2>当店へのアクセス</h2>
+            <!-- マップ -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.174553433561!2d130.40988137538014!3d33.57481687334053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191a04202812b%3A0x3b2a5a267548f881!2z5LiA6JitIOmCo-OBruW3neW6lw!5e0!3m2!1sja!2sjp!4v1774943812429!5m2!1sja!2sjp"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <h3>アクセス方法</h3>
+            <p>日赤通り「那の川」交差点より50m
+                <br>西鉄バス「那の川」より徒歩3分
+                <br>西鉄天神大牟田線「平尾駅」より徒歩7分
+            </p>
+            <p class="note">※自転車・バイクでお越しのお客様は「専用駐輪場」をご利用ください。</p>
+        </section>
+        <section>
+            <h2>店舗からのお知らせ</h2>
+            <h3>一時お休みのお知らせ</h3>
+            <p>以下の日時は、一時お休みいたします。
+                <br>4月2日(木) 8:00 ～ 4月2日(木)10:00</p>
+                <p class="note"> ※24h表記</p>
+                <p class="please">お客様にはご迷惑をお掛けいたしますが、ご理解のほど何卒よろしくお願い申し上げます。</p>
+            </p>
+            <h3>席数制限、営業時間についてのお知らせ</h3>
+            <p>人員の状況により、席数の制限、営業時間の変更、またはお休みとさせていただく場合がございます。</p>
+                <p class="note">※席数、営業時間は状況により急遽変更する場合がございます。</p>
+                <p class="please">お客様には大変ご不便をおかけいたしますが、ご理解のほど何卒よろしくお願い申し上げます。
+            </p>
+        </section>
+        <section>
+            <h2>店舗情報</h2>
+            <h3>席数</h3>
+            <p>・味集中カウンター：15席
+               <br>・テーブル席：なし
+               <br>・個室：なし</p>
+             <p class="note" >※お子様もお食事できる環境です（食器など）</p>
+            <h3>駐車場</h3>
+            <p>10台</p>
+            <p class="note">※満車の場合は時間を空けてのご来店をお願いすることがございますので、ご理解とご協力をお願いいたします
+            </p>
+            <h3>お支払い方法</h3>
+            <p>現金のみ</p>
+                <p class="note"> ※一部店舗ではセットメニューの取扱いもございます</p>
+                <P class="note"> ※内容は変更になる場合がございます。あらかじめご了承ください</P>
+                <P class="note">※22時以降は深夜料金をいただきます（対象時間帯：22時〜翌6時）</P>
+                <p class="note">混雑状況によりラストオーダー前であってもご入店できない場合がございます｡</p>
+                <p class="please">お客様にはご迷惑をおかけいたしますが、何卒ご理解・ご協力の程よろしくお願い申し上げます。</p>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <div class="footer-logo-info">
+                <img src="../img/ichiran_logomark_r 1.png" alt="一蘭" class="footer-logo">
+                <p>株式会社一蘭 1960年（昭和35年）<br>〒810-0801 福岡市博多区中洲5-3-2 一蘭本社ビル</p>
+                <div class="sns-icons">
+                    <img src="../img/SNSｓ.png" alt="SNSアイコン">
+                </div>
+            </div>
+            <div class="footer-links">
+                <p class="links-title">他にはこんなサービスも！</p>
+                <ul>
+                    <li><a href="#" target="_blank">ギフトカード</a></li>
+                    <li><a href="#" target="_blank">一蘭公式アプリ</a></li>
+                    <li><a href="#" target="_blank">ふるさと納税</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">© 2026 Ichiran Co., Ltd. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
