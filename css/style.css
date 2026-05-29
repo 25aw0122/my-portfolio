@@ -13,7 +13,6 @@ body {
 ヘッダーのスタイル 
 -----------------------*/
 header {
-  background-color: rgba(51, 51, 51, 0.7);
   position: fixed;
   width: 100%;
   display: flex;
@@ -38,7 +37,7 @@ nav a {
 nav a::after {
   content: "";
   position: absolute;
-  background-color: #c7c7c7;
+  background-color: #000;
 
   width: 0;
   height: 2px;
@@ -89,8 +88,8 @@ MVのスタイル
 }
 
 .portfolio-top h2 {
-  color: #333;
-  -webkit-text-stroke: 3px #0ce7cd;
+  color: #fff;
+  -webkit-text-stroke: 3px #02e1ff;
   font-size: 64px;
   text-align: center;
   letter-spacing: 20px;
@@ -127,7 +126,7 @@ MVのスタイル
   width: 600px;
   height: 3px;
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: #02e1ff;
   margin: 30px auto 0 auto;
 }
 
@@ -145,9 +144,10 @@ MVのスタイル
 
 .projects span {
   margin-bottom: 20px;
-  color: #333;
+  color: #02e1ff;
+  -webkit-text-stroke: 1px #02e1ff;
   /* -webkit-text-stroke: 2px #02e1ff; */
-  -webkit-text-stroke: 2px #fff;
+  
   margin: 0;
 }
 
@@ -177,7 +177,7 @@ MVのスタイル
 
   font-size: 54px;
   color: #333;
-  -webkit-text-stroke: 2px #ff9df5;
+  -webkit-text-stroke: 2px #02e1ff;
 }
 
 #portfolio-contact .contact,
@@ -296,7 +296,7 @@ MVのスタイル
   text-align: center;
   font-size: 54px;
   color: #333;
-  -webkit-text-stroke: 2px #ffffff;
+  -webkit-text-stroke: 2px #02e1ff;
   letter-spacing: 10px;
   margin-bottom: 100px;
 }
@@ -311,7 +311,7 @@ MVのスタイル
   content: '';
   height: 2px;
   width: 600px;
-  background-color: #ffffff;
+  background-color: #02e1ff;
   margin: 30px auto 0;
 }
 
@@ -341,7 +341,7 @@ MVのスタイル
 -------------------*/
 
 #portfolio-contact h2{
-  -webkit-text-stroke: 2px #ffff9d;
+  -webkit-text-stroke: 2px #02e1ff;
   letter-spacing: 10px;
 }
 
