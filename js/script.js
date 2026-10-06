@@ -148,3 +148,19 @@ const commonObserver = new IntersectionObserver(
 commonItems.forEach((item) => {
   commonObserver.observe(item);
 });
+
+const hamburger = document.querySelector(".hamburger");
+const nav = document.querySelector(".header-nav");
+const navLinks = document.querySelectorAll(".header-nav a");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("is-open");
+  nav.classList.toggle("is-open");
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("is-open");
+    nav.classList.remove("is-open");
+  });
+});

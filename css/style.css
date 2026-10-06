@@ -525,6 +525,217 @@ svg circle {
    767px以下
 ======================================== */
 
+/* =========================
+   ハンバーガーメニュー
+========================= */
+
+.hamburger {
+  display: none;
+}
+
+
+@media screen and (max-width: 767px) {
+
+  .hamburger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 30;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0;
+    border: none;
+    background: none;
+
+    font-family: "Shippori Mincho", sans-serif;
+    color: #000;
+
+    cursor: pointer;
+  }
+
+  /* MENU */
+  .hamburger-text {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+
+    transition: opacity 0.4s ease;
+  }
+
+  /* 2本の線 */
+  .hamburger-lines {
+    position: relative;
+
+    width: 28px;
+    height: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger-lines span {
+    display: block;
+
+    width: 28px;
+    height: 1px;
+
+    background: #000;
+
+    transition:
+      transform 0.5s ease,
+      width 0.5s ease;
+  }
+
+
+  /* =========================
+     メニュー本体
+  ========================= */
+
+  .header-nav {
+    display: block;
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width: 0;
+    height: 100vh;
+
+    padding: 0;
+
+    background: #fff;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+      width 0.6s cubic-bezier(0.77, 0, 0.18, 1),
+      opacity 0.3s ease;
+
+    z-index: 20;
+  }
+
+
+  /* 開いた状態 */
+
+  .header-nav.is-open {
+    width: 100%;
+
+    opacity: 1;
+  }
+
+
+  .header-nav.is-open ul {
+    position: absolute;
+
+    top: 50%;
+    right: 40%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+
+    text-align: left;
+  }
+
+
+  .header-nav.is-open a {
+    position: relative;
+
+    display: inline-block;
+
+    font-size: 24px;
+    letter-spacing: 0.08em;
+
+    color: #000;
+
+    text-decoration: none;
+
+    opacity: 0;
+    transform: translateX(30px);
+
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
+  }
+
+
+  /* 順番に表示 */
+
+  .header-nav.is-open li:nth-child(1) a {
+    transition-delay: 0.15s;
+  }
+
+  .header-nav.is-open li:nth-child(2) a {
+    transition-delay: 0.2s;
+  }
+
+  .header-nav.is-open li:nth-child(3) a {
+    transition-delay: 0.25s;
+  }
+
+  .header-nav.is-open li:nth-child(4) a {
+    transition-delay: 0.3s;
+  }
+
+  .header-nav.is-open a {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+
+  /* ホバー時 */
+
+  .header-nav.is-open a::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: #000;
+
+    transition: width 0.4s ease;
+  }
+
+  .header-nav.is-open a:hover::after {
+    width: 100%;
+  }
+
+
+  /* =========================
+     開いたときのボタン
+  ========================= */
+
+  .hamburger.is-open {
+    color: #000;
+  }
+
+  .hamburger.is-open .hamburger-text {
+    opacity: 0;
+  }
+
+  .hamburger.is-open .hamburger-lines span:first-child {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+
+  .hamburger.is-open .hamburger-lines span:last-child {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+}
+
+
 @media screen and (max-width: 767px) {
 
   /* ----------------------------------------
@@ -533,6 +744,10 @@ svg circle {
 
   .common {
     padding: 0 20px;
+  }
+
+  br {
+    display: none;
   }
 
 
@@ -576,34 +791,6 @@ svg circle {
     left: 20px;
   }
 
-
-  /* ----------------------------------------
-     ナビゲーション
-  ---------------------------------------- */
-
-  .header-nav {
-    top: 20px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: max-content;
-  }
-
-  .header-nav ul {
-    gap: 18px;
-  }
-
-  .header-nav a {
-    font-size: 13px;
-  }
-
-  .header-nav.nav-scrolled {
-    left: auto;
-    right: 20px;
-
-    transform: translateX(0);
-  }
 
 
   /* ----------------------------------------
@@ -814,6 +1001,22 @@ svg circle {
     margin-top: 0;
   }
 
+  br {
+    display: none;
+  }
+
+  /* ----------------------------------------
+     header全体
+  ---------------------------------------- */
+
+.header {
+  position: fixed;
+  background-color: #fff;
+  height: 60px;
+  border-bottom: 1px #000 solid;
+  margin: 0;
+}
+
   /* ----------------------------------------
      ロゴ
   ---------------------------------------- */
@@ -826,6 +1029,8 @@ svg circle {
   /* ----------------------------------------
      ナビ
   ---------------------------------------- */
+
+  
 
   .header-nav ul {
     gap: 14px;
@@ -840,9 +1045,7 @@ svg circle {
      Values
   ---------------------------------------- */
 
-  .value-item {
-    grid-template-columns: 32px 1fr 32px;
-  }
+
 
   .value-content h3 {
     font-size: 22px;
