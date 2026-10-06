@@ -37,6 +37,30 @@ body {
   color: #000;
 }
 
+
+.fv-container {
+  width: 100%;
+  height: 50vh;
+}
+
+.fv-message {
+  position: absolute;
+  top: 21%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+
+  text-align: center;
+  white-space: nowrap;
+
+  font-size: 2vw;
+  line-height: 1.8;
+
+  opacity: 0;
+
+  animation: fvMessage 1.2s ease 2.5s forwards;
+}
 /* 画面いっぱいのFVコンテナ */
 /* ロゴの右上固定位置指定 */
 /* ロゴの位置固定 */
@@ -269,7 +293,7 @@ svg circle {
 
 
 #about {
-  margin-top: 15vw;
+  margin-top: 33vw;
 }
 
 .common {
@@ -770,8 +794,24 @@ svg circle {
 
 @media screen and (max-width: 480px) {
 
+  h3 {
+    margin-bottom: 10px;
+  }
+
   .draw-svg {
     display: none;
+  }
+
+  .common {
+    margin: 60px auto;
+  }
+
+  .common_flex div {
+    margin-top: 10px;
+  }
+
+  .common_text {
+    margin-top: 0;
   }
 
   /* ----------------------------------------
@@ -820,7 +860,7 @@ svg circle {
   .works-list {
     gap: 60px;
   }
-}
+
 
 /* ========================================
    FV
@@ -829,13 +869,14 @@ svg circle {
 .fv-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 50vh;
+  top: 15vw;
 }
 
 .fv-message {
   position: absolute;
-  top: 28%;
-  left: 40%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 
   z-index: 2;
@@ -843,12 +884,13 @@ svg circle {
   text-align: center;
   white-space: nowrap;
 
-  font-size: 2vw;
+  font-size: 8vw;
   line-height: 1.8;
 
   opacity: 0;
 
   animation: fvMessage 1.2s ease 2.5s forwards;
+}
 }
 
 @keyframes fvMessage {
