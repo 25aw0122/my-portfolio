@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ポートフォリオサイト</title>
-     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Shippori+Mincho&display=swap"
@@ -15,7 +15,7 @@
   <body>
     <header>
       <!-- 右上配置のSVGロゴ -->
-      <div class="header ">
+      <div class="header">
         <a href="index.html"
           ><svg
             class="header-logo"
@@ -37,10 +37,10 @@
 
         <nav class="header-nav">
           <ul>
-            <li><a href="">about</a></li>
-            <li><a href="">values</a></li>
-            <li><a href="">works</a></li>
-            <li><a href="">contact</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#values">values</a></li>
+            <li><a href="#works">works</a></li>
+            <li><a href="#contact">contact</a></li>
           </ul>
         </nav>
       </div>
@@ -48,6 +48,11 @@
 
     <main>
       <section class="fv-container">
+        <div class="fv-message">
+          <p>納得するまで考え、</p>
+          <p>整理して前に進む。</p>
+        </div>
+
         <!--FV-->
         <!-- SVG本体（※ファイル読み込み または 内部埋め込み） -->
         <!-- imgタグではなく、<svg>タグとして配置するか、JSで読み込む必要があります -->
@@ -848,7 +853,6 @@
       </section>
 
       <section id="about">
-
         <div class="common">
           <h2>私とは？</h2>
           <p>About</p>
@@ -857,9 +861,9 @@
         <div class="common">
           <h3>田中稜真 <span>Webデザイン科</span></h3>
           <p class="common_text">
-            このWebサイトのコンセプトは<br>
-            「納得するまで考え、整理して前に進む自分を伝える」<br>
-            そんな自分を見てもらうWebサイトにしました。<br>
+            このWebサイトのコンセプトは<br />
+            「納得するまで考え、整理して前に進む自分を伝える」<br />
+            そんな自分を見てもらうWebサイトにしました。<br />
           </p>
         </div>
 
@@ -887,177 +891,146 @@
         <div class="common">
           <h3 class="font_purple">なぜ？どうして？</h3>
           <p class="common_text">
-            なぜそうなるのか。なぜそう思うのか。本当にそれでいいのか。最近<br>
-            特にそんなことを気にすることが多くなり、行動することも少しずつ<br>
-            増えてきた。前までは仕組みや、相手がなぜそう思うのかなんて、気<br>
-            にしてなんかいなかった。<br>
-            私が変わり始めたのは専門学校に入り、１年経ってからだった。<br>
+            なぜそうなるのか。なぜそう思うのか。本当にそれでいいのか。最近<br />
+            特にそんなことを気にすることが多くなり、行動することも少しずつ<br />
+            増えてきた。前までは仕組みや、相手がなぜそう思うのかなんて、気<br />
+            にしてなんかいなかった。<br />
+            私が変わり始めたのは専門学校に入り、１年経ってからだった。<br />
           </p>
         </div>
       </section>
 
-    <!-- =========================
+      <!-- =========================
          Values
     ========================== -->
 
-    <section id="values" class="values-section">
-
-      <div class="values-heading common">
-        <h2>深く進む、<br>5つのステップ。</h2>
-        <p>Values</p>
-      </div>
-
-      <div class="values-list common">
-
-        <div class="value-item">
-          <span class="value-number">01</span>
-
-          <div class="value-content">
-            <h3>気になる</h3>
-            <p>違和感や「もっと知りたい、気になる」を見逃さない。</p>
-          </div>
-
-          <span class="value-mark">／</span>
+      <section id="values" class="values-section">
+        <div class="values-heading common">
+          <h2>深く進む、<br />5つのステップ。</h2>
+          <p>Values</p>
         </div>
 
+        <div class="values-list common">
+          <div class="value-item">
+            <span class="value-number">01</span>
 
-        <div class="value-item">
-          <span class="value-number">02</span>
+            <div class="value-content">
+              <h3>気になる</h3>
+              <p>違和感や「もっと知りたい、気になる」を見逃さない。</p>
+            </div>
 
-          <div class="value-content">
-            <h3>調べる、考える</h3>
-            <p>事例や仕組み、使う人のことを観察する。</p>
+            <span class="value-mark">／</span>
           </div>
 
-          <span class="value-mark">／／</span>
-        </div>
+          <div class="value-item">
+            <span class="value-number">02</span>
 
+            <div class="value-content">
+              <h3>調べる、考える</h3>
+              <p>事例や仕組み、使う人のことを観察する。</p>
+            </div>
 
-        <div class="value-item">
-          <span class="value-number">03</span>
-
-          <div class="value-content">
-            <h3>整理する</h3>
-            <p>内容をまず整理する。</p>
+            <span class="value-mark">／／</span>
           </div>
 
-          <span class="value-mark">／／／</span>
-        </div>
+          <div class="value-item">
+            <span class="value-number">03</span>
 
+            <div class="value-content">
+              <h3>整理する</h3>
+              <p>内容をまず整理する。</p>
+            </div>
 
-        <div class="value-item">
-          <span class="value-number">04</span>
-
-          <div class="value-content">
-            <h3>理解、納得する</h3>
-            <p>整理した内容を理解し、納得する。</p>
+            <span class="value-mark">／／／</span>
           </div>
 
-          <span class="value-mark">／／／／</span>
-        </div>
+          <div class="value-item">
+            <span class="value-number">04</span>
 
+            <div class="value-content">
+              <h3>理解、納得する</h3>
+              <p>整理した内容を理解し、納得する。</p>
+            </div>
 
-        <div class="value-item">
-          <span class="value-number">05</span>
-
-          <div class="value-content">
-            <h3>行動する</h3>
-            <p>納得したら、手足を動かして行動する。</p>
+            <span class="value-mark">／／／／</span>
           </div>
 
-          <span class="value-mark">／／／／／</span>
+          <div class="value-item">
+            <span class="value-number">05</span>
+
+            <div class="value-content">
+              <h3>行動する</h3>
+              <p>納得したら、手足を動かして行動する。</p>
+            </div>
+
+            <span class="value-mark">／／／／／</span>
+          </div>
         </div>
+      </section>
 
-      </div>
-
-    </section>
-
-
-    <!-- =========================
+      <!-- =========================
          Works
     ========================== -->
 
-    <section id="works" class="works-section">
+      <section id="works" class="works-section">
+        <div class="works-heading">
+          <h2>考えたことが<br />見える制作</h2>
+          <p>Works</p>
+        </div>
 
-      <div class="works-heading">
-        <h2>考えたことが<br>見える制作</h2>
-        <p>Works</p>
-      </div>
+        <div class="works-list">
+          <a href="works/promotion-project/index.html" class="work-item">
+            <div class="work-image">
+              <img src="img/MC_CRAFT.png" alt="進級制作 MCクラフトLP" />
+            </div>
 
+            <h3>進級制作 MCクラフトLP</h3>
+          </a>
 
-      <div class="works-list">
+          <a href="#" class="work-item">
+            <div class="work-image">
+              <img src="img/firstwork.png" alt="花王 学生サービス企画" />
+            </div>
 
-        <a href="#" class="work-item">
+            <h3>花王 学生サービス企画</h3>
+          </a>
+        </div>
+      </section>
 
-          <div class="work-image">
-            <img src="images/work-mc-craft.jpg" alt="進級制作 MCクラフトLP">
-          </div>
-
-          <h3>進級制作 MCクラフトLP</h3>
-
-        </a>
-
-
-        <a href="#" class="work-item">
-
-          <div class="work-image">
-            <img src="images/work-hanaya.jpg" alt="花王 学生サービス企画">
-          </div>
-
-          <h3>花王 学生サービス企画</h3>
-
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
+      <!-- =========================
          Contact
     ========================== -->
 
-    <section id="contact" class="contact-section">
+      <section id="contact" class="contact-section">
+        <div class="contact-heading">
+          <h2>お問い合わせ</h2>
+          <p>Contact</p>
+        </div>
 
-      <div class="contact-heading">
-        <h2>お問い合わせ</h2>
-        <p>Contact</p>
-      </div>
+        <div class="contact-content">
+          <p>
+            ポートフォリオをご覧いただき、<br />
+            ありがとうございます。
+          </p>
 
-      <div class="contact-content">
+          <p>
+            Web制作やデザインについて、<br />
+            お気軽にご連絡ください。
+          </p>
 
-        <p>
-          ポートフォリオをご覧いただき、<br>
-          ありがとうございます。
-        </p>
+          <a href="mailto:example@example.com" class="contact-mail">
+            example@example.com
+          </a>
+        </div>
+      </section>
 
-        <p>
-          Web制作やデザインについて、<br>
-          お気軽にご連絡ください。
-        </p>
-
-        <a
-          href="mailto:example@example.com"
-          class="contact-mail"
-        >
-          example@example.com
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
+      <!-- =========================
          Footer
     ========================== -->
 
-    <footer class="footer">
-
-      <p>© 2026 R.T</p>
-
-    </footer>
-
+      <footer class="footer">
+        <p>© 2026 R.T</p>
+      </footer>
     </main>
 
     <script src="js/script.js" defer></script>

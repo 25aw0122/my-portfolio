@@ -1,8 +1,15 @@
 @charset "utf-8";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
 :root {
   --black: #000;
-  --purple: #a200ca;
+  
 }
 
 h2 {
@@ -23,11 +30,7 @@ li {
   list-style-type: none;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 body {
   font-family: "Shippori Mincho", sans-serif;
@@ -39,7 +42,7 @@ body {
 /* ロゴの位置固定 */
 .header {
   position: absolute;
-  z-index: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   margin-top: 2vw;
@@ -216,6 +219,7 @@ svg circle {
 
 .header-nav a {
   position: relative;
+  
 
   color: #000;
   text-decoration: none;
@@ -509,6 +513,23 @@ svg circle {
 
 
   /* ----------------------------------------
+     基本の文字サイズ
+  ---------------------------------------- */
+
+  h2 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+
+  /* ----------------------------------------
      Header
   ---------------------------------------- */
 
@@ -524,11 +545,9 @@ svg circle {
   .header-logo {
     top: 20px;
     left: 20px;
-
     width: 50px;
   }
 
-  /* スクロール後 */
   .header-logo.is-scrolled {
     left: 20px;
   }
@@ -540,10 +559,6 @@ svg circle {
 
   .header-nav {
     top: 20px;
-
-    /*
-      FVではナビ全体を中央に配置
-    */
     left: 50%;
 
     transform: translateX(-50%);
@@ -556,16 +571,9 @@ svg circle {
   }
 
   .header-nav a {
-    font-size: 12px;
+    font-size: 13px;
   }
 
-
-  /*
-    FVを過ぎたら右側へ移動。
-
-    スマホでは65vwだと画面外に出る可能性があるため、
-    rightで位置を決める。
-  */
   .header-nav.nav-scrolled {
     left: auto;
     right: 20px;
@@ -589,7 +597,7 @@ svg circle {
   .common_text {
     margin-top: 24px;
 
-    font-size: 15px;
+    font-size: 16px;
     line-height: 2;
   }
 
@@ -613,14 +621,13 @@ svg circle {
   }
 
   .values-heading p {
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.9;
   }
 
 
-  /*
-    Valuesをスマホ用に整理
-  */
+  /* 5つのステップ */
+
   .value-item {
     min-height: auto;
 
@@ -636,25 +643,25 @@ svg circle {
   .value-number {
     width: auto;
 
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .value-content h3 {
     margin-bottom: 10px;
 
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.4;
   }
 
   .value-content p {
-    font-size: 13px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.9;
   }
 
   .value-mark {
     width: auto;
 
-    font-size: 15px;
+    font-size: 16px;
 
     text-align: right;
   }
@@ -679,15 +686,14 @@ svg circle {
   }
 
   .works-heading p {
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.9;
   }
 
 
-  /*
-    PCでは2列
-    スマホでは1列
-  */
+  /* PCでは2列
+     スマホでは1列 */
+
   .works-list {
     grid-template-columns: 1fr;
 
@@ -699,8 +705,8 @@ svg circle {
   }
 
   .work-item h3 {
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.7;
   }
 
 
@@ -722,8 +728,8 @@ svg circle {
   }
 
   .contact-heading p {
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.9;
   }
 
   .contact-content {
@@ -733,12 +739,12 @@ svg circle {
   .contact-content p {
     margin-bottom: 28px;
 
-    font-size: 14px;
+    font-size: 16px;
     line-height: 2;
   }
 
   .contact-mail {
-    font-size: 16px;
+    font-size: 18px;
     padding-bottom: 4px;
   }
 
@@ -752,7 +758,7 @@ svg circle {
   }
 
   .footer p {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 
@@ -763,6 +769,10 @@ svg circle {
 ======================================== */
 
 @media screen and (max-width: 480px) {
+
+  .draw-svg {
+    display: none;
+  }
 
   /* ----------------------------------------
      ロゴ
@@ -782,7 +792,7 @@ svg circle {
   }
 
   .header-nav a {
-    font-size: 11px;
+    font-size: 12px;
   }
 
 
@@ -795,11 +805,11 @@ svg circle {
   }
 
   .value-content h3 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .value-content p {
-    font-size: 12px;
+    font-size: 15px;
   }
 
 
@@ -809,5 +819,40 @@ svg circle {
 
   .works-list {
     gap: 60px;
+  }
+}
+
+/* ========================================
+   FV
+======================================== */
+
+.fv-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.fv-message {
+  position: absolute;
+  top: 28%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+
+  text-align: center;
+  white-space: nowrap;
+
+  font-size: 2vw;
+  line-height: 1.8;
+
+  opacity: 0;
+
+  animation: fvMessage 1.2s ease 2.5s forwards;
+}
+
+@keyframes fvMessage {
+  to {
+    opacity: 1;
   }
 }
