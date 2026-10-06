@@ -1,3 +1,28 @@
+@charset "utf-8";
+
+:root {
+  --black: #000;
+  --purple: #a200ca;
+}
+
+h2 {
+  font-size: 2.2vw;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.8vw;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.4vw;
+}
+
+li {
+  list-style-type: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,368 +30,784 @@
 }
 
 body {
-  font-family: sans-serif;
-  background-color: #333;
+  font-family: "Shippori Mincho", sans-serif;
+  color: #000;
 }
 
-/* --------------------
-ヘッダーのスタイル 
------------------------*/
-header {
-  position: fixed;
-  width: 100%;
+/* 画面いっぱいのFVコンテナ */
+/* ロゴの右上固定位置指定 */
+/* ロゴの位置固定 */
+.header {
+  position: absolute;
+  z-index: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 10rem;
-  height: 70px;
-  padding: 0 1rem;
-  box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.5);
-  z-index: 1000;
+  margin-top: 2vw;
 }
 
-nav {
+/* ロゴの位置固定 */
+.header-logo {
+  position: fixed;
+  left: 24vw;
+  width: 5vw;
+  height: auto;
+  z-index: 10;
+  transition: all 0.6s;
+}
+
+/* スクロール時にロゴを左へ移動 */
+.header-logo.is-scrolled {
+  left: 5vw;
+  right: auto;
+}
+
+/* ロゴの基本遷移（スムーズに塗りが変化するように transition を設定） */
+.header-logo path,
+.header-logo polygon,
+.header-logo rect {
+  transition: fill 0.4s ease, stroke 0.4s ease;
+}
+
+/* スクロール時に付与されるクラス */
+.header-logo.is-scrolled path,
+.header-logo.is-scrolled polygon,
+.header-logo.is-scrolled rect {
+  fill: #231815 !important; /* ロゴ本来の黒塗りを適用 */
+  stroke: none !important; /* 輪郭線を消して滑らかに */
+}
+
+/* ========================================
+   common
+======================================== */
+
+.common {
+  margin-bottom: 5vw;
+  padding: 0 14vw;
+}
+
+/* ========================================
+   SVG線画アニメーション
+======================================== */
+
+/* ページ内のすべてのSVG要素に対してアニメーションを適用 */
+svg path,
+svg polygon,
+svg line,
+svg polyline,
+svg rect,
+svg circle {
+  /* 塗りを完全に透過し、線を表示させる（重要） */
+  fill: none !important;
+  stroke: #231815 !important;
+  stroke-width: 1.2px !important;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  /* JSで計算した長さをCSS変数で受け取る */
+  stroke-dasharray: var(--length, 2000);
+  stroke-dashoffset: var(--length, 2000);
+
+  /* アニメーション実行 */
+  animation: drawLine 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+/* パスとポリゴンの初期状態と線画アニメーション */
+.draw-svg path,
+.draw-svg polygon,
+.draw-svg line,
+.draw-svg polyline,
+.draw-svg circle,
+.draw-svg rect {
+  stroke: #1a1a1a; /* 線の色 */
+  stroke-width: 1.5; /* 線の太さ */
+  fill: none; /* 塗りは透明 */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  /* JSで動的にセットされるCSS変数を使用 */
+  stroke-dasharray: var(--length);
+  stroke-dashoffset: var(--length);
+
+  /* アニメーション：JSで計算した delay（遅延）を適用 */
+  animation: drawLine 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+/* 線が描かれるキーフレーム */
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* ========================================
+   FVテキスト
+======================================== */
+
+/* キャッチコピーなどのテキストを線画完了に合わせて浮き上がらせる場合 */
+/* .fv-title {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.15em;
+  color: #333;
+  opacity: 0;
+  animation: fadeIn 1s ease 2.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+} */
+
+
+/* ========================================
+   ナビゲーション
+======================================== */
+
+.header-nav {
+  position: fixed;
+
+  /* FVではナビ全体を中央に配置 */
+  top: 2vw;
+  left: 50%;
+
+  /* 自分自身の横幅の半分だけ左に戻す */
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  opacity: 0;
+
+  /* スクロール時の移動を滑らかにする */
+  transition:
+    left 0.8s ease,
+    transform 0.8s ease,
+    opacity 0.7s ease;
+}
+
+/* ナビを表示 */
+.header-nav.is-visible {
+  opacity: 1;
+}
+
+/* FVを過ぎたら右側へ移動 */
+.header-nav.nav-scrolled {
+  left: 65vw;
+
+  /* 中央揃えを解除 */
+  transform: translateX(0);
+}
+
+.header-nav ul {
+  display: flex;
+  gap: 4vw;
+}
+
+.header-nav li {
+  list-style-type: none;
+}
+
+.header-nav a {
+  position: relative;
+
+  color: #000;
+  text-decoration: none;
+
+  font-size: 1.1vw;
+}
+
+/* ナビゲーションの下線 */
+.header-nav a::after {
+  content: "";
+
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+
+  width: 0;
+  height: 1px;
+
+  background: currentColor;
+
+  transition: width 0.5s;
+}
+
+.header-nav a:hover::after {
+  width: 100%;
+}
+
+
+
+/* ========================================
+   表示アニメーション
+======================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(100px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+#about {
+  margin-top: 15vw;
+}
+
+.common {
+  margin-bottom: 5vw;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.common.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.common_flex {
+  display: flex;
+  gap: 7vw;
+  padding-top: 1.7vw;
+}
+
+.common_text {
+  margin-top: 1.3vw;
+  line-height: 2.1vw;
+  font-size: 1.1vw;
+}
+
+.font_purple {
+  color: var(--purple);
+}
+
+/* ========================================
+   Values
+======================================== */
+
+.values-section {
+  margin-top: 15vw;
+  margin-bottom: 18vw;
+}
+
+.values-heading {
+  margin-bottom: 8vw;
+}
+
+.values-heading h2 {
+  font-size: 2.5vw;
+  line-height: 1.25;
+}
+
+.values-heading p {
+  font-size: 1.1vw;
+}
+
+
+/* 5つのステップ */
+
+.values-list {
+  width: 100%;
+}
+
+.value-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 7vw;
+
+  border-bottom: 1px solid #999;
+}
+
+.value-number {
+  width: 6vw;
+
+  font-size: 0.8vw;
+}
+
+.value-content {
   flex: 1;
 }
 
-nav a {
-  position: relative;
-  padding-bottom: 8px;
+.value-content h3 {
+  margin-bottom: 0.4vw;
+
+  font-size: 1.7vw;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  background-color: #000;
-
-  width: 0;
-  height: 2px;
-  left: 50%;
-  bottom: 0;
-
-  transform: translateX(-50%);
-  transition: width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+.value-content p {
+  font-size: 0.9vw;
+  line-height: 1.6;
 }
 
-nav a:hover::after {
-  /*ホバー時のスタイル*/
-  width: 100%;
+.value-mark {
+  width: 8vw;
+
+  font-size: 1.2vw;
+  color: #999;
+
+  letter-spacing: 0.1vw;
 }
 
-header ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
+
+/* ========================================
+   Works
+======================================== */
+
+.works-section {
+  padding: 0 14vw;
+  margin-bottom: 18vw;
 }
 
-header ul li a {
-  color: #fff;
-  font-size: 15px;
-  text-decoration: none;
-  letter-spacing: 3px;
+.works-heading {
+  margin-bottom: 5vw;
 }
 
-/*アイコンのスタイル*/
-header h1 img {
-  display: block;
+.works-heading h2 {
+  font-size: 2.5vw;
+  line-height: 1.25;
 }
 
-/* --------------------
-MVのスタイル 
------------------------*/
-.portfolio-top {
-  background-color: #333;
-  width: 100%;
-  height: 850px;
-  display: flex;
-  align-items: center;
+.works-heading p {
+  font-size: 1.1vw;
 }
 
-.portfolio-top .container {
-  width: 70%;
-  margin: 40px auto 0 auto;
-}
 
-.portfolio-top h2 {
-  color: #fff;
-  -webkit-text-stroke: 3px #02e1ff;
-  font-size: 64px;
-  text-align: center;
-  letter-spacing: 20px;
-  animation: 1s ease-in bounceIn; /*要素が弾む*/
-}
-
-@keyframes bounceIn {
-  /*0%=0秒　100％=1秒*/
-  0% {
-    transform: translateY(
-      100px
-    ); /*元の位置からY軸方向に100px移動（下に100px）*/
-    opacity: 0; /*完全透明*/
-  }
-  50% {
-    transform: translateY(-50px); /*元の位置より20px上*/
-  }
-  70% {
-    transform: translateY(30px); /*元の位置より10px下*/
-  }
-  85% {
-    transform: translateY(-15px); /*元の位置より5px上*/
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* h2の下に線を引くためのスタイル */
-.portfolio-top .container-title::after {
-  content: "";
-  display: block;
-  width: 600px;
-  height: 3px;
-  border-radius: 10px;
-  background-color: #02e1ff;
-  margin: 30px auto 0 auto;
-}
-
-.projects {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 40px;
-  font-size: 48px;
-  font-weight: 100;
-  letter-spacing: 40px;
-  animation: 1s ease-out bounceIn;
-}
-
-.projects span {
-  margin-bottom: 20px;
-  color: #02e1ff;
-  -webkit-text-stroke: 1px #02e1ff;
-  /* -webkit-text-stroke: 2px #02e1ff; */
-  
-  margin: 0;
-}
-
-/* --------------------
-自己紹介セクションのスタイル
------------------------*/
-#portfolio-contact,
-#portfolio-about,
-#portfolio-skills {
-  height: 1000px;
-  width: 100%;
-  max-width: 1200px;
-
-  display: flex;
-  align-items: center;
-
-  margin: 0 auto;
-  background-color: #333;
-  color: #fff;
-}
-
-#portfolio-contact h2,
-#portfolio-about h2,
-#portfolio-skills h2 {
-  margin: 0 auto;
-  text-align: center;
-
-  font-size: 54px;
-  color: #333;
-  -webkit-text-stroke: 2px #02e1ff;
-}
-
-#portfolio-contact .contact,
-#portfolio-about .about,
-#portfolio-skills .skills {
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  gap: 2rem;
-}
-
-.about p,
-.skills p {
-  width: 65%;
-
-  letter-spacing: 1px;
-  line-height: 2;
-  font-size: 18px;
-}
-
-.skills p {
-  width: 100%;
-}
-
-#portfolio-skills h2 {
-  position: relative;
-  margin: 0 auto;
-  text-align: center;
-
-  font-size: 54px;
-  color: #333;
-  -webkit-text-stroke: 2px #02e1ff;
-
-  letter-spacing: 10px;
-}
-
-#portfolio-skills .after::after {
-  content: "";
-  display: inline-block;
-  background-color: #fff;
-  width: 600px;
-  height: 2px;
-  margin: 30px auto 0 auto;
-}
-
-.skill-description {
-  letter-spacing: 1px;
-}
-
-.skill-tags {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-top: 0px;
-}
-
-/* 1つのスキル行 */
-.skill-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.skill-tag {
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-  min-width: 100px; /* スキル名の幅を固定 */
-}
-
-/* メーター（バー全体） */
-.skill-bar {
-  flex: 1; /* 残りのスペースを占める */
-  height: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-/* メーター（進行部分） */
-.skill-progress {
-  height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  border-radius: 10px;
-  transition: width 1s ease-out;
-  width: 0; 
-}
-
-.portfolio-works {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 0;
-}
-
-/* -------------------
-作品セクションのスタイル 
-----------------------*/
-
-#portfolio-works {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 1500px;
-  max-width: 1200px;
-  margin: 0 auto;
-  justify-content: center;
-}
-
-#portfolio-works .works h2 {
-  text-align: center;
-  font-size: 54px;
-  color: #333;
-  -webkit-text-stroke: 2px #02e1ff;
-  letter-spacing: 10px;
-  margin-bottom: 100px;
-}
-
-#portfolio-works .works span {
-  font-size: 18px;
-  color: #fff;
-}
-
-#portfolio-works .works h2::after {
-  display: block;
-  content: '';
-  height: 2px;
-  width: 600px;
-  background-color: #02e1ff;
-  margin: 30px auto 0;
-}
-
-.works-grid {
+.works-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  gap: 100px;
-  width: 80%;
-  margin: 0 auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vw;
 }
 
-.works-item img {
+.work-item {
+  color: #000;
+  text-decoration: none;
+}
+
+.work-image {
+  width: 100%;
+  aspect-ratio: 1.5 / 1;
+
+  margin-bottom: 1vw;
+
+  overflow: hidden;
+
+  background-color: #ddd;
+}
+
+.work-image img {
   width: 100%;
   height: 100%;
-  padding-bottom: 10px;
+
   object-fit: cover;
-  transition: transform 0.3s ease;
+
+  display: block;
 }
 
-.works-item img:hover {
-  transform: scale(1.1);
+.work-item h3 {
+  font-size: 0.9vw;
+  font-weight: normal;
 }
 
-/*-----------------
-コンタクト
--------------------*/
 
-#portfolio-contact h2{
-  -webkit-text-stroke: 2px #02e1ff;
-  letter-spacing: 10px;
+/* ========================================
+   Contact
+======================================== */
+
+.contact-section {
+  padding: 0 14vw;
+  margin-bottom: 12vw;
 }
 
-/*------------------
-フッター
--------------------*/
-
-#footer {
-  height: 100px;
-  width: 100%;
+.contact-heading {
+  margin-bottom: 5vw;
 }
 
-#footer .footer-top{
-  margin-top: 80px;
-  margin-bottom: 30px;
-  text-align: center;
+.contact-heading h2 {
+  font-size: 2.5vw;
 }
 
-#footer img {
-  margin: 0 auto;
+.contact-heading p {
+  font-size: 1.1vw;
 }
 
-#footer .footer-bottom p {
-  color: #fff;
-  text-align: center;
-  padding-bottom: 20px;
+.contact-content {
+  padding-top: 2vw;
+
+  border-top: 1px solid #999;
 }
 
+.contact-content p {
+  margin-bottom: 2vw;
+
+  font-size: 1vw;
+  line-height: 2;
+}
+
+.contact-mail {
+  display: inline-block;
+
+  color: #000;
+  text-decoration: none;
+
+  font-size: 1.1vw;
+
+  border-bottom: 1px solid #000;
+  padding-bottom: 0.3vw;
+}
+
+.contact-mail:hover {
+  opacity: 0.5;
+}
+
+
+/* ========================================
+   Footer
+======================================== */
+
+.footer {
+  padding: 3vw 5vw;
+
+  border-top: 1px solid #ccc;
+}
+
+.footer p {
+  font-size: 0.8vw;
+}
+
+/* ========================================
+   スマートフォン
+   767px以下
+======================================== */
+
+@media screen and (max-width: 767px) {
+
+  /* ----------------------------------------
+     共通
+  ---------------------------------------- */
+
+  .common {
+    padding: 0 20px;
+  }
+
+
+  /* ----------------------------------------
+     Header
+  ---------------------------------------- */
+
+  .header {
+    width: 100%;
+  }
+
+
+  /* ----------------------------------------
+     ロゴ
+  ---------------------------------------- */
+
+  .header-logo {
+    top: 20px;
+    left: 20px;
+
+    width: 50px;
+  }
+
+  /* スクロール後 */
+  .header-logo.is-scrolled {
+    left: 20px;
+  }
+
+
+  /* ----------------------------------------
+     ナビゲーション
+  ---------------------------------------- */
+
+  .header-nav {
+    top: 20px;
+
+    /*
+      FVではナビ全体を中央に配置
+    */
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: max-content;
+  }
+
+  .header-nav ul {
+    gap: 18px;
+  }
+
+  .header-nav a {
+    font-size: 12px;
+  }
+
+
+  /*
+    FVを過ぎたら右側へ移動。
+
+    スマホでは65vwだと画面外に出る可能性があるため、
+    rightで位置を決める。
+  */
+  .header-nav.nav-scrolled {
+    left: auto;
+    right: 20px;
+
+    transform: translateX(0);
+  }
+
+
+  /* ----------------------------------------
+     About
+  ---------------------------------------- */
+
+  #about {
+    margin-top: 160px;
+  }
+
+  .common_flex {
+    display: block;
+  }
+
+  .common_text {
+    margin-top: 24px;
+
+    font-size: 15px;
+    line-height: 2;
+  }
+
+
+  /* ----------------------------------------
+     Values
+  ---------------------------------------- */
+
+  .values-section {
+    margin-top: 160px;
+    margin-bottom: 180px;
+  }
+
+  .values-heading {
+    margin-bottom: 60px;
+  }
+
+  .values-heading h2 {
+    font-size: 30px;
+    line-height: 1.4;
+  }
+
+  .values-heading p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+
+  /*
+    Valuesをスマホ用に整理
+  */
+  .value-item {
+    min-height: auto;
+
+    padding: 28px 0;
+
+    display: grid;
+
+    grid-template-columns: 40px 1fr 40px;
+
+    align-items: start;
+  }
+
+  .value-number {
+    width: auto;
+
+    font-size: 11px;
+  }
+
+  .value-content h3 {
+    margin-bottom: 10px;
+
+    font-size: 22px;
+    line-height: 1.4;
+  }
+
+  .value-content p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .value-mark {
+    width: auto;
+
+    font-size: 15px;
+
+    text-align: right;
+  }
+
+
+  /* ----------------------------------------
+     Works
+  ---------------------------------------- */
+
+  .works-section {
+    padding: 0 20px;
+    margin-bottom: 180px;
+  }
+
+  .works-heading {
+    margin-bottom: 60px;
+  }
+
+  .works-heading h2 {
+    font-size: 30px;
+    line-height: 1.4;
+  }
+
+  .works-heading p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+
+  /*
+    PCでは2列
+    スマホでは1列
+  */
+  .works-list {
+    grid-template-columns: 1fr;
+
+    gap: 70px;
+  }
+
+  .work-image {
+    margin-bottom: 14px;
+  }
+
+  .work-item h3 {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+
+  /* ----------------------------------------
+     Contact
+  ---------------------------------------- */
+
+  .contact-section {
+    padding: 0 20px;
+    margin-bottom: 120px;
+  }
+
+  .contact-heading {
+    margin-bottom: 60px;
+  }
+
+  .contact-heading h2 {
+    font-size: 30px;
+  }
+
+  .contact-heading p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .contact-content {
+    padding-top: 24px;
+  }
+
+  .contact-content p {
+    margin-bottom: 28px;
+
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .contact-mail {
+    font-size: 16px;
+    padding-bottom: 4px;
+  }
+
+
+  /* ----------------------------------------
+     Footer
+  ---------------------------------------- */
+
+  .footer {
+    padding: 32px 20px;
+  }
+
+  .footer p {
+    font-size: 11px;
+  }
+}
+
+
+/* ========================================
+   小さいスマートフォン
+   480px以下
+======================================== */
+
+@media screen and (max-width: 480px) {
+
+  /* ----------------------------------------
+     ロゴ
+  ---------------------------------------- */
+
+  .header-logo {
+    width: 46px;
+  }
+
+
+  /* ----------------------------------------
+     ナビ
+  ---------------------------------------- */
+
+  .header-nav ul {
+    gap: 14px;
+  }
+
+  .header-nav a {
+    font-size: 11px;
+  }
+
+
+  /* ----------------------------------------
+     Values
+  ---------------------------------------- */
+
+  .value-item {
+    grid-template-columns: 32px 1fr 32px;
+  }
+
+  .value-content h3 {
+    font-size: 20px;
+  }
+
+  .value-content p {
+    font-size: 12px;
+  }
+
+
+  /* ----------------------------------------
+     Works
+  ---------------------------------------- */
+
+  .works-list {
+    gap: 60px;
+  }
+}
