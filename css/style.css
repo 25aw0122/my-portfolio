@@ -44,6 +44,7 @@ body {
 }
 
 .fv-message {
+  display: none;
   position: absolute;
   top: 21%;
   left: 40%;
@@ -617,6 +618,7 @@ svg circle {
       opacity 0.3s ease;
 
     z-index: 20;
+    
   }
 
 
@@ -624,7 +626,6 @@ svg circle {
 
   .header-nav.is-open {
     width: 100%;
-
     opacity: 1;
   }
 
@@ -737,6 +738,10 @@ svg circle {
 
 
 @media screen and (max-width: 767px) {
+
+  .header-nav.nav-scrolled {
+  left: 0;
+  }
 
   /* ----------------------------------------
      共通
@@ -1081,6 +1086,7 @@ svg circle {
 }
 
 .fv-message {
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
